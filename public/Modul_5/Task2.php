@@ -14,13 +14,27 @@
       <button name="submit" type="submit">Submit</button>
     </form>
     <?php
+      //kjøres hvis submit er trykket
       if(isset($_GET['submit'])){
+        //henter psudopass fra get og lagres i en variabel
         $pspass = $_GET['psudopass'];
+
+        //oppretter en stor bokstav og lagres i en variabel
         $big = chr(rand(65,90));
+
+        //lager nytt passord bestående av $big, et random tall mellom 100-99999,
+          //og en omsortert versjon av $pspass
         $newPass = $big . rand(100,99999) . str_shuffle($pspass);
+
+        //setter max-lengde
         $maxLen = 8;
+
+        //setter minimum-lengde
         $minLen = 1;
+
+        //sjekker om det nye passordet er større enn max-lengde
         if(strlen($newPass) > $maxLen){
+          //fjerner det som er over max-lengde om if=true
           $eightLen = substr($newPass, 0, 8);
             echo "<br><br>Passordforslag: " . $eightLen;
           }
