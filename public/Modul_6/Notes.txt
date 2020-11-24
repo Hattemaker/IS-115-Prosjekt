@@ -1,0 +1,34 @@
+Lag en kort video hvor du gir ditt inntrykk av objektorientert programmering i PHP:
+hva var ev. vanskelig og utfordrendeå forstå –og hva var ev. lett å forstå?
+
+Procedural vs OOP
+  - velge hvilken vei du vil gå
+  - OOP
+    - Nyttig for komplekse sider, unyttig ellers
+    - Nyttig ved bruk av databaser
+  - Properties trenger ikke "$" forran, kun variabler
+    - eks.: $customer->first-name = 'Magnus';
+    - get_class_vars($string)
+      - default value
+    - get_object_vars($object)
+      - current value
+    - property_exists($mixed, $string)
+  -Metoder
+    - for å kjøre en metode:
+      - $objekt->metode();
+  - Referere til en instans:
+    -  i en metode, bruk $this->property_navn for å hente en enstans av klassen
+  - Alltid bruk visibility modifiers
+    - Public, Private, Protected
+  - Overloading
+    - Sette verdier til variabler som ikke finnes
+
+Utfordrende :
+  - Overgang fra tidligere OOP-programmer og få php syntaxen i fingrene
+
+Lett :
+  - Object Properties
+    - Brukt andre språk som java, C# så er vant til dette
+  - Methods
+    - Samme som ovenfor
+  - Definere en klasse

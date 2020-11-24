@@ -1,11 +1,13 @@
 <?php
 // We need to use sessions, so you should always start sessions using the below code.
 session_start();
+
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
 }
+
 #Definerer konstanter for å koble til databasen
   define('MYSQL_VERT', 'db');
   define('MYSQL_BRUKER', 'dbuser');
@@ -13,20 +15,27 @@ if (!isset($_SESSION['loggedin'])) {
   define('MYSQL_DB', 'ergotests');
 
 #Kobler til database med oppkoblingsdata
-  $tilkobling = new mysqli( MYSQL_VERT, MYSQL_BRUKER, MYSQL_PASSORD, MYSQL_DB );
-  if ( $tilkobling->connect_error )
+  $tilkobling = new mysqli(MYSQL_VERT, MYSQL_BRUKER, MYSQL_PASSORD, MYSQL_DB);
+  if ($tilkobling->connect_error)
   {
     die('Tilkoblingen til databasen feilet. Vennligst forsøk igjen senere.');
     exit();
   }
-// We don't have the password or email info stored in sessions so instead we can get the results from the database.
-$stmt = $tilkobling->prepare('SELECT passord, epost, mobilnr, gateadresse, postnr, poststed, betalt FROM Medlemmer WHERE id = ?');
+
+//Lager SQL-spørringens struktur
+$stmt = 'SELECT * FROM Medlemmer WHERE id = ?';
+
+//forbereder spørringen
+$stmt = $tilkobling->prepare( $sql );
 // In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['id']);
+//$stmt->bind_param('i', $_SESSION['id']);
 $stmt->execute();
-$stmt->bind_result($passord, $epost, $mobilnr, $gate, $postnr, $poststed, $betalt);
+//$stmt->bind_result($passord, $epost, $mobilnr, $gate, $postnr, $poststed, $betalt);
 $stmt->fetch();
 $stmt->close();
+$tilkobling->close();
+
+
 ?>
 <!DOCTYPE html>
 <html>

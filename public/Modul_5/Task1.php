@@ -23,7 +23,9 @@
         //gjør om første bokstav til uppercase og printer resultatet
         echo "Fornavn: " . ucfirst($fname) . "<br>";
         //gjør om første bokstav til uppercase og printer resultatet
-        echo "Etternavn: " . ucfirst($lname);
+        echo "Etternavn: " . ucfirst($lname) . "<br>";
+
+        echo strlen($lname);
       }
       ?>
   </body>

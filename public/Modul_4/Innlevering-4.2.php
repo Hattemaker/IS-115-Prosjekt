@@ -5,9 +5,9 @@
 </head>
 <body>
 	<h1>Oppgave 2, Overskriving av matriser</h1>
-	<?php 
+	<?php
 		//oppretter et array (0-9) og fyller dette med jibberish
-		$array = [	"ost", 
+		$array = [	"ost",
 					"kjeks",
 					"vin",
 					"elefant",
@@ -20,15 +20,15 @@
 
 		//oppretter et array for erstatning av partallindexer
 		$replaceEven = [0 => "kjegle",
-						2 => "kremmer", 
-						4 => "kålrot", 
-						6 => "kvalitetstid", 
+						2 => "kremmer",
+						4 => "kålrot",
+						6 => "kvalitetstid",
 						8 => "kesamkor"];
 
 		//oppretter et array for erstatning av oddetallindexer
 		$replaceOdd = [	1 => "prest",
-						3 => "protese", 
-						5 => "pyjamas", 
+						3 => "protese",
+						5 => "pyjamas",
 						7 => "pyongyang",
 						9 => "paraglider"];
 
@@ -42,13 +42,15 @@
 
 	<pre><?php print_r($newArray); ?></pre>
 
-	<?php 
-		
+	<?php
+		//foreach loop som itererer gjennom arraey $newKeys og setter verdien av n index til verdi + 10
 		$newKeys = array_keys($newArray);
 		foreach ($newKeys as $key => $value) {
 			$newKeys[$key] = $value + 10;
 		}
+		//slår sammen arrayene newKeys og newArray til et nytt sett
 		$newSet = array_combine($newKeys, $newArray);
+		//foreach loop som printer ut settene
 		foreach ($newSet as $set => $value) {
 			echo "Nøkkel: $set har verdi: $value <br>";
 		}

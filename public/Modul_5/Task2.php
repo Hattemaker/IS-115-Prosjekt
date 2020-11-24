@@ -29,9 +29,6 @@
         //setter max-lengde
         $maxLen = 8;
 
-        //setter minimum-lengde
-        $minLen = 1;
-
         //sjekker om det nye passordet er større enn max-lengde
         if(strlen($newPass) > $maxLen){
           //fjerner det som er over max-lengde om if=true
@@ -45,7 +42,3 @@
      ?>
   </body>
 </html>
-<!--
-if(preg_match('/[A-Z]/', $newShuffPass){
-
-}

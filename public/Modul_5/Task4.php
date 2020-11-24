@@ -13,31 +13,31 @@
     </form>
     <?php
       //henter ut innført dato via GET og lagrer det i en variabel
-      $fdato = $_GET['dato'];
+      $dato = $_GET['dato'];
 
-      //konverterer stringen som er lagret i $fdato til et timestamp
-      $timestamp = strtotime($fdato);
+      //konverterer stringen som er lagret i $dato til en $tidsmarkering
+      $$tidsmarkering = strtotime($dato);
 
       //dagens dato
       $idag = date("d.m.Y");
 
-      function dagerMellomDatoer($timestamp, $idag){
-        $differanse = strtotime($idag) - $timestamp;
+      function dagerMellomDatoer($$tidsmarkering, $idag){
+        $differanse = strtotime($idag) - $$tidsmarkering;
         return abs(round($differanse /86400));
       }
 
       //finner differansen mellom de to datoene
-      $datoDiff = dagerMellomDatoer($timestamp, $idag);
+      $datoDiff = dagerMellomDatoer($$tidsmarkering, $idag);
 
       //finner rest når delt på år
       $dager = $datoDiff % 365;
 
       //finner år
-      $year = round($datoDiff/365);
+      $år = round($datoDiff/365);
 
       //hvis 'submit' er klikket, gjør følgende:
       if(isset($_GET['submit'])){
-        echo  "År: " . $year . " og " . $dager . " dag(er).";
+        echo  "År: " . $år . " og " . $dager . " dag(er).";
       }
      ?>
   </body>
